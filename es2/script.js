@@ -65,24 +65,31 @@ calcolaVittori.addEventListener("click",
     }
 
     console.log(numeroPc);
-    if (somma(valore, numeroPc) % 2 == 0){
+    if( !isNaN(somma(valore, numeroPc)) && typeof scelta != undefined ){
 
-      risultato = "pari";
+      if (somma(valore, numeroPc) % 2 == 0){
+
+        risultato = "pari";
 
 
+      } else {
+
+        risultato = "dispari";
+
+      }
+
+      if (scelta == risultato) {
+
+        alert("Hai vinto");
+
+      } else {
+
+        alert("Hai perso");
+
+      }
     } else {
 
-      risultato = "dispari";
-
-    }
-
-    if (scelta == risultato) {
-
-      alert("Hai vinto");
-
-    } else {
-
-      alert("Hai perso");
+      alert("tutti i campi sono obbligatori");
 
     }
 
