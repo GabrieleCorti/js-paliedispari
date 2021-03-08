@@ -39,32 +39,52 @@ var valore;
 var risultato;
 var numeroPc;
 
+function troughArray(array) {
+
+  for (var i = 0; i < array.length; i++) {
+
+    if (array[i].checked == true) {
+      return array[i].value;
+    }
+
+  }
+
+}
+
 calcolaVittori.addEventListener("click",
 
   function (){
 
     numeroPc = Math.floor(Math.random() * 5 + 1);
-    for (var i = 0; i < sceltaPariDispari.length; i++) {
 
-      if (sceltaPariDispari[i].checked == true) {
 
-        scelta = sceltaPariDispari[i].value;
+    // for (var i = 0; i < sceltaPariDispari.length; i++) {
+    //
+    //   if (sceltaPariDispari[i].checked == true) {
+    //
+    //     scelta = sceltaPariDispari[i].value;
+    //
+    //   }
+    //
+    // }
+    //
+    // for (var i = 0; i < numeri.length; i++) {
+    //
+    //   if (numeri[i].checked == true){
+    //
+    //     valore = parseInt(numeri[i].value);
+    //
+    //   }
+    //
+    // }
 
-      }
-
-    }
-
-    for (var i = 0; i < numeri.length; i++) {
-
-      if (numeri[i].checked == true){
-
-        valore = parseInt(numeri[i].value);
-
-      }
-
-    }
+    scelta = troughArray(sceltaPariDispari)
+    valore = parseInt(troughArray(numeri))
+    // console.log(scelta);
+    // console.log(valore);
 
     console.log(numeroPc);
+
     if( !isNaN(somma(valore, numeroPc)) && typeof scelta != undefined ){
 
       if (somma(valore, numeroPc) % 2 == 0){
@@ -87,6 +107,7 @@ calcolaVittori.addEventListener("click",
         alert("Hai perso");
 
       }
+
     } else {
 
       alert("tutti i campi sono obbligatori");
@@ -94,4 +115,5 @@ calcolaVittori.addEventListener("click",
     }
 
   }
+
 );
